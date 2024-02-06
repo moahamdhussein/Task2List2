@@ -1,8 +1,8 @@
-package com.example.task2list2;
+package com.example.task2list2.model;
 
 import java.util.ArrayList;
 
-class UpperClassPojo {
+public class UpperClassPojo {
    private ArrayList<Products> products;
    private int total, skip,limit;
 

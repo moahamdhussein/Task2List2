@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Task2List2</string>
+    <string name="go_to_fav">go to fav</string>
+    <string name="go_to_all_product">go to all product</string>
+    <string name="save">Save</string>
+    <string name="remove">remove</string>
 </resources>

@@ -1,24 +1,54 @@
-package com.example.task2list2;
+package com.example.task2list2.model;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
+
+
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 
-import javax.net.ssl.HttpsURLConnection;
 
-class Products {
-   private String title,description,brand ;
+@Entity(tableName = "product_table")
+public class Products {
+   @PrimaryKey
+   @NonNull
+   private int id;
+
+   public Products(int id, String title, String description, String brand, String url, double price, float rating) {
+      this.id = id;
+      this.title = title;
+      this.description = description;
+      this.brand = brand;
+      this.url = url;
+      this.price = price;
+      this.rating = rating;
+   }
+
+   @ColumnInfo(name = "title")
+   private String title;
+   @ColumnInfo(name = "description")
+   private String description;
+   @ColumnInfo(name = "brand")
+   private String brand ;
+   @ColumnInfo(name = "image url")
    @SerializedName("thumbnail")
    private String url;
+   @ColumnInfo(name = "price")
    private double price;
+   @ColumnInfo(name = "rating")
    private float rating;
 
+
+   public int getId() {
+      return id;
+   }
+
+   public void setId(int id) {
+      this.id = id;
+   }
 
    public String getUrl() {
       return url;
@@ -72,13 +102,13 @@ class Products {
    @Override
    public String toString() {
       return "Products{" +
-              "title='" + title + '\'' +
+              "id=" + id +
+              ", title='" + title + '\'' +
               ", description='" + description + '\'' +
               ", brand='" + brand + '\'' +
               ", url='" + url + '\'' +
-              ", rating=" + rating +
               ", price=" + price +
+              ", rating=" + rating +
               '}';
    }
-
 }
